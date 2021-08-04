@@ -10,32 +10,36 @@ const buttonShowResolution = document.querySelector(".button-show-resolution")
 const showResolution = document.querySelector(".show-resolution")
 const buttonDeleteResolution = document.querySelector(".button-delete-resolution")
 
-const patient = JSON.parse(localStorage.getItem('doctor'))
+let patient = JSON.parse(localStorage.getItem('queue'))
 
 buttonNext.addEventListener('click', () =>{ 
-    console.log(patient.length)
+    const currentParient = patient[0]
     if(patient.length == 0){
         console.log('пациентов нет')
         currentPatient.value = 'пациентов нет'
+        inputResolution.value = null
     }
-    if(patient.length == 1){
-        localStorage.setItem(`${patient[patient.length-1]}`, 'врач осматривает пациента')
-        currentPatient.value = patient[patient.length-1]
-        patient.pop(patient[patient.length-1])
-    }
-    if(patient.length >= 2){
-        localStorage.setItem(`${patient[patient.length-1]}`, 'врач осматривает пациента')
-        currentPatient.value = patient[patient.length-1]
-        patient.pop(patient[patient.length-1])
+
+    if(patient.length >= 1){
+        localStorage.setItem(`${currentParient}`, 'врач осматривает пациента')
+        currentPatient.value = currentParient
+        patient.shift(currentParient)
+        localStorage.setItem('queue', JSON.stringify(patient))
+        inputResolution.value = null
     }
 })
 
 buttonAddResolution.addEventListener('click', () =>{
-    localStorage.setItem(`${currentPatient.value}`, inputResolution.value)
+    if(currentPatient.value === 'пациентов нет'){
+        inputResolution.value = 'некому ставить диагноз'
+    }else {
+        localStorage.setItem(`${currentPatient.value}`, inputResolution.value)
+    }
 })
 
 buttonShowResolution.addEventListener('click', () =>{ 
     showResolution.value = localStorage.getItem(`${searchInputPatient.value}`)
+    searchInputPatient.value= null
 })
 
 buttonDeleteResolution.addEventListener('click', () =>{ 
@@ -43,3 +47,6 @@ buttonDeleteResolution.addEventListener('click', () =>{
     localStorage.setItem(`${searchInputPatient.value}`, noResolution)
 })
 
+window.addEventListener('storage', event => {
+    patient = JSON.parse(localStorage.getItem('queue'))
+})

@@ -1,12 +1,12 @@
 
 const inputNewPatient = document.querySelector(".new-patient");
 
-const arrPatient = []
+let arrPatient = []
 
 document.querySelector(".button-add-new-patient").addEventListener('click', () =>{ 
     arrPatient.push( `${inputNewPatient.value}`)
     const q = JSON.stringify(arrPatient)
-    localStorage.setItem('doctor', q)
+    localStorage.setItem('queue', q)
     inputNewPatient.value = null
 })
 
@@ -18,9 +18,11 @@ search.addEventListener('change', () =>{
     search.value = null
 })
 
-
 const currentPatient = document.querySelector(".current-patient")
+
 window.addEventListener('storage', event => {
     const patientWithDoctor = event
     currentPatient.value = patientWithDoctor.key
+    arrPatient = JSON.parse(localStorage.getItem('queue'))
+
 })
