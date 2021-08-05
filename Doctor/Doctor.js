@@ -36,7 +36,7 @@ buttonAddResolution.addEventListener('click', () =>{
             setWithoutExpiry(`${currentPatient.value}`, inputResolution.value)
             inputResolution.value = null
         }else{
-            setWithExpiry(`${currentPatient.value}`, inputResolution.value, parseInt(valueTtl.value))
+            setWithExpiry(`${currentPatient.value}`, inputResolution.value, (parseInt(valueTtl.value)*1000))
             inputResolution.value = null
             valueTtl.value = null
         }
