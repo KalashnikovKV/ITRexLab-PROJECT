@@ -17,26 +17,26 @@ let patient = JSON.parse(localStorage.getItem('queue'))
 buttonNext.addEventListener('click', () =>{ 
     if(patient.length == 0){
         console.log('пациентов нет')
-        currentPatient.value = 'пациентов нет'
+        currentPatient.innerHTML = 'пациентов нет'
         inputResolution.value = null
     }else if(patient.length > 0) {
         const thisPatient = patient.shift()
         setWithoutExpiry(`${thisPatient}`, 'идет осмотр')
-        currentPatient.value = thisPatient
+        currentPatient.innerHTML = thisPatient
         localStorage.setItem('queue', JSON.stringify(patient))
         inputResolution.value = null
     }
 })
 
 buttonAddResolution.addEventListener('click', () =>{
-    if(currentPatient.value === 'пациентов нет'){
+    if(currentPatient.innerHTML === 'пациентов нет'){
         inputResolution.value = 'некому ставить диагноз'
     }else {
         if(valueTtl.value == ""){
-            setWithoutExpiry(`${currentPatient.value}`, inputResolution.value)
+            setWithoutExpiry(`${currentPatient.innerHTML}`, inputResolution.value)
             inputResolution.value = null
         }else{
-            setWithExpiry(`${currentPatient.value}`, inputResolution.value, (parseInt(valueTtl.value)*1000))
+            setWithExpiry(`${currentPatient.innerHTML}`, inputResolution.value, parseInt(valueTtl.value))
             inputResolution.value = null
             valueTtl.value = null
         }
@@ -69,7 +69,7 @@ function setWithExpiry(key, value, ttl) {
     const now = new Date()
 	const item = {
         value: value,
-		expiry: now.getTime() + ttl,
+		expiry: now.getTime() + ttl * 1000,
     }
     localStorage.setItem(key, JSON.stringify(item))
 }

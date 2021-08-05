@@ -5,32 +5,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./patient.css">
     <title>Patient</title>
 </head>
 
 <body>
-    <div class="header">
-        <h3>The Queue</h3>
-    </div>
-    <div>
-        <input type="textarea" class="current-patient" value="" placeholder="Current Patient" readonly>
-        <div>
-            <input type="textarea" class="new-patient" placeholder="input">
-            <button class="button-add-new-patient">Add</button>
+    <div class="container">
+        <div class="header">
+            <h3>The Queue</h3>
         </div>
-    </div>
+        <div class="div-for-current-patient">
+            Current patient: 
+            <label class="current-patient" placeholder="Current patient">
+            </label>            
+            <div class="div-button-add-new-patient">
+                <div class="div-new-patient">
+                    <input type="textarea" class="new-patient" placeholder="Enter name">
+                </div>
+                <button class="button-add-new-patient">Add</button>
+            </div>
+        </div>
+        
+        <hr>
 
-    <hr>
-    <div>
-        <div>
-            <input type="search" class="input-searh-patient" placeholder="search">
-        </div>
-
-        <div>
-            <input type="textarea" class="resolution-from-doctor" placeholder="resolution">
+        <div class="input-and-search-resolution">
+            <div class="div-input-searh-patient">
+                <input type="search" class="input-searh-patient" placeholder="Search">
+            </div>
+            <div class="div-resolution-from-doctor">
+                <input type="textarea" class="resolution-from-doctor" placeholder="Found resolution" readonly>
+            </div>
         </div>
     </div>
-<script src="./Patient.js"></script>
+    <script src="./Patient.js"></script>
 </body>
 
 </html>

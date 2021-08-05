@@ -23,7 +23,7 @@ const currentPatient = document.querySelector(".current-patient")
 
 window.addEventListener('storage', event => {
     const patientWithDoctor = event
-    currentPatient.value = patientWithDoctor.key
+    currentPatient.innerHTML = patientWithDoctor.key
     arrPatient = JSON.parse(localStorage.getItem('queue'))
 
 })

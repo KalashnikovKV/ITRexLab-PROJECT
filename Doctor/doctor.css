@@ -1,0 +1,98 @@
+body {
+    margin: 3%;
+    font-size: 20px;
+}
+
+button {
+    font-size: 15px;
+}
+
+
+.div-button-next {
+    float: right;
+}
+
+.div-for-current-patient-and-button-next {
+    margin: 3%;
+}
+
+.div-button-next {
+    float: right;
+}
+
+.button-next {
+    border-radius: 10px;
+    width: 180px;
+}
+
+.set-resolution {
+    margin: 2%;
+    margin-bottom: 10%;
+    margin-right: 0%;
+
+}
+
+.div-for-input-resolution {
+    margin: 1%;
+}
+
+.input-resolution {
+    margin-left: 12%;
+    height: 100px;
+    width: 60%;
+}
+
+.div-set-appointment-resolution {
+    float: left;
+}
+
+.div-ttl-button-add-resolution {
+    margin: 3%;
+    float: right;
+}
+
+.button-add-resolution {
+    border-radius: 10px;
+    width: 180px;
+}
+
+.div-show-something-resolution {
+    margin: 3%;
+}
+
+.div-search-input-patient-button-show-resolution {
+    float: left;
+    height: 80px;
+    width: 30%;
+}
+
+.search-input-patient {
+    height: 80%;
+    width: 100%;
+}
+
+.div-found-resolution {
+    width: 60%;
+    float: right;
+}
+
+.button-show-resolution {
+    margin-bottom: 6%;
+    border-radius: 10px;
+    width: 180px;
+}
+
+.show-resolution {
+    height: 100px;
+    width: 100%;
+}
+
+.button-delete-resolution {
+    border-radius: 10px;
+    width: 180px;
+}
+
+.button-delete-resolution {
+    margin-top: 1%;
+    float: right;
+}

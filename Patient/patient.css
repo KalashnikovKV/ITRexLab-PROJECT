@@ -1,0 +1,51 @@
+body {
+    margin: 3%;
+    font-size: 20px;
+}
+
+button {
+    font-size: 15px;
+}
+
+.header {
+    margin: 5%;
+}
+
+.div-for-current-patient {
+    margin: 5%;
+}
+
+.current-patient {
+    height: 32px;
+    width: 260px;
+    text-align: center;
+}
+
+.div-new-patient {
+    margin-bottom: 15px;
+}
+
+.div-button-add-new-patient {
+    float: right;
+}
+
+.button-add-new-patient {
+    float: right;
+    border-radius: 10px;
+    width: 180px;
+}
+
+.input-and-search-resolution {
+    margin: 5%;
+}
+
+.div-input-searh-patient {
+    float: left;
+}
+
+.resolution-from-doctor {
+    float: right;
+    height: 150px;
+    width: 600px;
+    resize: none;
+}
