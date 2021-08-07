@@ -1,0 +1,23 @@
+{
+  "name": "laba_itrex_nodeproject",
+  "version": "1.0.0",
+  "description": "Create a single Express-based app that serves two separate, unrelated pieces of functionality.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KalashnikovKV/ITRexLab-PROJECT.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KalashnikovKV/ITRexLab-PROJECT/issues"
+  },
+  "homepage": "https://github.com/KalashnikovKV/ITRexLab-PROJECT#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {}
+}
