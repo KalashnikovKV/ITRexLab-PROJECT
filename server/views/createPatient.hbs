@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <title>Create patient</title>
+</head>
+
+<body>
+
+    <div class="div-for-current-patient">
+        Current patient:
+        <label class="current-patient" placeholder="Current patient"></label>
+    </div>
+
+    <form action="postPatient" method="POST">
+        <input name="name" />
+        <input type="submit" value="Отправить" />
+    </form>
+    <a href="/queuePatients">К списку пациентов</a>
+
+    <hr>
+
+    <div class="input-and-search-resolution">
+        <div class="div-input-searh-patient">
+            <input type="search" class="input-searh-patient" placeholder="Search">
+        </div>
+        <div class="div-resolution-from-doctor">
+            <input type="textarea" class="resolution-from-doctor" placeholder="Found resolution" readonly>
+        </div>
+    </div>
+
+
+
+
+
+</body>
+<html>

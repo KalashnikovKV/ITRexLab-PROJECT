@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="./doctor.css"> -->
+    <title>Doctor</title>
+</head>
+<body>
+    <div>
+        <div class="div-for-current-patient-and-button-next">
+            Current patient: 
+            <label class="current-patient" placeholder="Current patient">
+            </label> 
+            <div class="div-button-next">
+                <button class="button-next">Next</button>
+            </div>
+        
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="set-resolution">
+        <div class="div-for-input-resolution">
+            <div class="div-set-appointment-resolution">
+                Set appointment resolution
+            </div>
+            <input type="textarea" class="input-resolution" value="" placeholder="Input to set resolution">
+        </div>
+        <div class="div-ttl-button-add-resolution">
+            <input type="textarea" class="ttl"  placeholder="TTL"></input>
+            <button class="button-add-resolution">Add</button>
+        </div>
+        
+    </div>
+
+    <hr>
+
+    <div class="div-show-something-resolution">
+        <div class="div-search-input-patient-button-show-resolution">
+            <button class="button-show-resolution">Show resolution</button>
+            <input type="search" class="search-input-patient" value="" placeholder="Input: key of the patient">
+        </div>
+        <div class="div-found-resolution">
+            <input type="textarea" class="show-resolution" placeholder="Found resolution">
+            <button class="button-delete-resolution">Delete</button>
+        </div>
+    </div>
+    <script src="./Doctor.js"></script>
+</body>
+</html>
