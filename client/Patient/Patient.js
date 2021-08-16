@@ -1,12 +1,15 @@
 
 const inputNewPatient = document.querySelector(".new-patient");
 
-let arrPatient = []
-
 document.querySelector(".button-add-new-patient").addEventListener('click', () =>{ 
-    arrPatient.push( `${inputNewPatient.value}`)
-    const q = JSON.stringify(arrPatient)
-    localStorage.setItem('queue', q)
+    const q = {"name": `${inputNewPatient.value}`}
+    fetch('http://127.0.0.1:7000/patients/add', {
+        method: 'POST', 
+        body: JSON.stringify(q), 
+        headers: {
+          'Content-Type': 'application/json'
+        }
+    });
     inputNewPatient.value = null
 })
 
@@ -20,13 +23,6 @@ search.addEventListener('change', () =>{
 })
 
 const currentPatient = document.querySelector(".current-patient")
-
-window.addEventListener('storage', event => {
-    const patientWithDoctor = event
-    currentPatient.innerHTML = patientWithDoctor.key
-    arrPatient = JSON.parse(localStorage.getItem('queue'))
-
-})
 
 function getWithExpiry(key) {
     const itemStr = localStorage.getItem(key)
