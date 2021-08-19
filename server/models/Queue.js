@@ -1,18 +1,18 @@
-const patients = []
 module.exports = class Queue {
-    constructor(name) {
-        this.name = name
+    constructor() {
+        if (Queue.instance) {
+            return Queue.instance
+        }
+        this.patients = []
+        Queue.instance = this
+        return Queue.instance
     }
 
-    async add() {
-        patients.push(this)
+    async add(name) {
+        this.patients.push(name)
     }
 
-    static get() {
-        return patients.shift()
-    }
-
-    static showALL() {
-        return patients
+    get() {
+        return this.patients.shift()
     }
 }

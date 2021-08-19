@@ -1,5 +1,3 @@
-// window.location.reload()
-// иногда приходится перезагружать страницу доктора, чтобы эта страница увидела key 'doctor' и его value
 const currentPatient = document.querySelector(".current-patient");
 const inputResolution = document.querySelector(".input-resolution");
 const buttonAddResolution = document.querySelector(".button-add-resolution");
@@ -14,15 +12,15 @@ const valueTtl = document.querySelector(".ttl")
 
 buttonNext.addEventListener('click', () => {
     fetch('http://127.0.0.1:7000/doctors/nextPatient', {
-        method: 'PUT', // ? PATCH
+        method: 'PATCH',
     })
         .then((response) => {
-            console.log(response)
+            // console.log(response)
             return response.json();
         })
         .then((data) => {
             console.log(data)
-            currentPatient.innerHTML = data.name;
+            currentPatient.innerHTML = data;
         });
 })
 
@@ -44,12 +42,12 @@ buttonAddResolution.addEventListener('click', () => {
 })
 
 buttonShowResolution.addEventListener('click', () => {
-    const q = {
+    const namePatient = {
         "name": `${searchInputPatient.value}`
     }
     fetch('http://127.0.0.1:7000/doctors/getPatientWithResolution', {
         method: 'PUT',
-        body: JSON.stringify(q),
+        body: JSON.stringify(namePatient),
         headers: {
             'Content-Type': 'application/json'
         }
@@ -62,27 +60,25 @@ buttonShowResolution.addEventListener('click', () => {
             console.log(data)
             showResolution.value = data;
         });
-    searchInputPatient.value = null
 })
 
 buttonDeleteResolution.addEventListener('click', () => {
-    const noResolution = `диагноз удален врачом`
-    localStorage.setItem(`${searchInputPatient.value}`, noResolution)
+    const namePatient = {
+        "name": `${searchInputPatient.value}`
+    }
+    fetch('http://127.0.0.1:7000/doctors/deleteResolutionPatient', {
+        method: 'DELETE',
+        body: JSON.stringify(namePatient),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+        .then((response) => {
+            console.log(response)
+            return response.json();
+        })
+        .then((data) => {
+            console.log(data)
+            showResolution.value = data;
+        });
 })
-
-
-
-
-function getWithExpiry(key) {
-    const itemStr = localStorage.getItem(key)
-    if (!itemStr) {
-        return null
-    }
-    const item = JSON.parse(itemStr)
-    const now = new Date()
-    if (now.getTime() > item.expiry) {
-        localStorage.removeItem(key)
-        return null
-    }
-    return item.value
-}

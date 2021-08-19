@@ -1,9 +1,10 @@
 const express = require("express");
 const doctorsController = require("../controllers/doctorsController.js");
 const doctorsRouter = express.Router();
- 
-doctorsRouter.use("/nextPatient", doctorsController.nextPatient);
-doctorsRouter.use("/addCurrentPatient", doctorsController.addResolutionCurrentPatient);
-doctorsRouter.use("/getPatientWithResolution", doctorsController.getPatientWithResolution);
- 
+
+doctorsRouter.patch("/nextPatient", doctorsController.nextPatient);
+doctorsRouter.put("/addCurrentPatient", doctorsController.addResolutionCurrentPatient);
+doctorsRouter.put("/getPatientWithResolution", doctorsController.getPatientWithResolution);
+doctorsRouter.delete("/deleteResolutionPatient", doctorsController.deleteResolutionPatient);
+
 module.exports = doctorsRouter;
