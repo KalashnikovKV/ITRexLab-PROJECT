@@ -12,7 +12,21 @@ module.exports = class Queue {
         this.patients.push(name)
     }
 
-    get() {
-        return this.patients.shift()
+    async get() {
+        if (this.patients.length === 0) {
+            const answ = 'очередь пуста'
+            return JSON.stringify(answ)
+        } else {
+            return this.patients.shift()
+        }
+    }
+
+    async showFirstPatient() {
+        if (this.patients.length === 0) {
+            const answ = 'очередь пуста'
+            return JSON.stringify(answ)
+        } else {
+            return this.patients[0]
+        }
     }
 }

@@ -8,3 +8,7 @@ exports.addPatient = function (req, res) {
     res.status(201).json()
 };
 
+exports.showFirstPatient = async function (req, res) {
+    const patient = new Queue()
+    res.status(201).json(await patient.showFirstPatient())
+};

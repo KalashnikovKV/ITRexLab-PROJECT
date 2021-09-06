@@ -11,16 +11,15 @@ const buttonDeleteResolution = document.querySelector(".button-delete-resolution
 const valueTtl = document.querySelector(".ttl")
 
 buttonNext.addEventListener('click', () => {
-    fetch('http://127.0.0.1:7000/doctors/nextPatient', {
+    fetch('http://127.0.0.1:7000/doctors/', {
         method: 'PATCH',
     })
         .then((response) => {
-            // console.log(response)
             return response.json();
         })
         .then((data) => {
             console.log(data)
-            currentPatient.innerHTML = data;
+            currentPatient.innerHTML = JSON.parse(data);
         });
 })
 
@@ -31,7 +30,7 @@ buttonAddResolution.addEventListener('click', () => {
         "resolution": `${inputResolution.value}`,
         "ttl": `${ttlValue}`
     }
-    fetch('http://127.0.0.1:7000/doctors/addCurrentPatient', {
+    fetch('http://127.0.0.1:7000/doctors/addResolution', {
         method: 'PUT',
         body: JSON.stringify(q),
         headers: {
@@ -45,7 +44,7 @@ buttonShowResolution.addEventListener('click', () => {
     const namePatient = {
         "name": `${searchInputPatient.value}`
     }
-    fetch('http://127.0.0.1:7000/doctors/getPatientWithResolution', {
+    fetch('http://127.0.0.1:7000/doctors/', {
         method: 'PUT',
         body: JSON.stringify(namePatient),
         headers: {
@@ -53,7 +52,6 @@ buttonShowResolution.addEventListener('click', () => {
         }
     })
         .then((response) => {
-            console.log(response)
             return response.json();
         })
         .then((data) => {
@@ -66,7 +64,7 @@ buttonDeleteResolution.addEventListener('click', () => {
     const namePatient = {
         "name": `${searchInputPatient.value}`
     }
-    fetch('http://127.0.0.1:7000/doctors/deleteResolutionPatient', {
+    fetch('http://127.0.0.1:7000/doctors/', {
         method: 'DELETE',
         body: JSON.stringify(namePatient),
         headers: {
@@ -74,11 +72,11 @@ buttonDeleteResolution.addEventListener('click', () => {
         }
     })
         .then((response) => {
-            console.log(response)
             return response.json();
         })
         .then((data) => {
             console.log(data)
-            showResolution.value = data;
+            showResolution.value = null;
+            searchInputPatient.value = null
         });
 })

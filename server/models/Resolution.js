@@ -17,7 +17,7 @@ module.exports = class Resolution {
             "ttl": expire
         }
         this.patientsWithResolution.push(patient);
-        console.log(this.patientsWithResolution)
+        // console.log(this.patientsWithResolution)
     }
 
     async getPatientWithResolution(name) {

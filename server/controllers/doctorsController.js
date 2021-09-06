@@ -19,7 +19,6 @@ exports.addResolutionCurrentPatient = function (req, res) {
 exports.getPatientWithResolution = async function (req, res) {
     const patientName = req.body.name
     const patientsWithResolution = new Resolution()
-    // console.log(patientsWithResolution.getPatientWithResolution(patientName))
     res.status(201).json(await patientsWithResolution.getPatientWithResolution(patientName))
 };
 

@@ -8,7 +8,7 @@ const currentPatient = document.querySelector(".current-patient")
 
 buttonAddNewPatient.addEventListener('click', () => {
     const namePatient = { "name": `${inputNewPatient.value}` }
-    fetch('http://127.0.0.1:7000/patients/add', {
+    fetch('http://127.0.0.1:7000/patients/', {
         method: 'POST',
         body: JSON.stringify(namePatient),
         headers: {
@@ -16,13 +16,26 @@ buttonAddNewPatient.addEventListener('click', () => {
         }
     });
     inputNewPatient.value = null
+
+    fetch('http://127.0.0.1:7000/patients/', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            currentPatient.innerHTML = data;
+        });
 })
 
 search.addEventListener('change', () => {
     const namePatient = {
         "name": `${search.value}`
     }
-    fetch('http://127.0.0.1:7000/doctors/deleteResolutionPatient', {
+    fetch('http://127.0.0.1:7000/doctors/', {
         method: 'DELETE',
         body: JSON.stringify(namePatient),
         headers: {
@@ -33,7 +46,6 @@ search.addEventListener('change', () => {
             return response.json();
         })
         .then((data) => {
-            console.log(data)
             resolution.value = data;
         });
 })

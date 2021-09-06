@@ -40,12 +40,13 @@ button {
 }
 
 .div-input-searh-patient {
+    margin-bottom: 3%;
     float: left;
 }
 
 .resolution-from-doctor {
     float: right;
     height: 150px;
-    width: 600px;
+    width: 100%;
     resize: none;
 }
